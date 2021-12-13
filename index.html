@@ -1,9 +1,452 @@
----
-layout: default
-title: Avenue Fashion
----
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Avenue Fashion</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/assets/css/main.min.css">
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+  </head>
+  <body>
 
-        {% include header.html %}
-        {% include categories.html %}
-        {% include lookbook.html %}
-        {% include footer.html %}
+          
+<nav class="home-nav">
+  <div class="nav-upper-holder">
+    <div class="nav-content wrapper_70">
+      <ul>
+        <li class="currency-holder">Currency: 
+          <select name="currency_select">
+            <option value="GBP">GBP</option>
+            <option value="BitCoin">BitCoin</option>
+            <option value="Ethereum">Ethereum</option>
+            <option value="dollar">Dollar $</option>
+            <option value="Euro #">Euro #</option>
+          </select><i class="fa fa-caret-down"></i>
+        </li>
+        <li> <a href="http://">Register</a></li>
+        <li> <a href="http://">Sign In</a></li>
+        <li> <a href="http://"><i class="fa fa-cart-arrow-down fa-2x"></i> empty <i class="fa fa-angle-down"></i></a></li>
+      </ul>
+    </div>
+    <div class="nav-mobile">
+      <ul>
+        <li class="cancel-btn" id="cancel-modal"><i class="fa fa-times fa-2x"></i></li>
+        <li class="nav-click">MENS <i class="fa fa-angle-right">  </i></li>
+        <li class="nav-click">WOMENS <i class="fa fa-angle-right">  </i></li>
+        <li class="nav-click">THE BRAND <i class="fa fa-angle-right">  </i></li>
+        <li class="nav-click">LOCAL STORES <i class="fa fa-angle-right">  </i></li>
+        <li class="nav-click">LOOK BOOK <i class="fa fa-angle-right">  </i></li>
+        <li class="search-holder"><input type="search" name="search" id="search_box" placeholder="Search here.."/><i class="fa fa-search" id="searclogo"></i></li>
+        <li class="currency-holder">Currency: 
+          <select name="currency_select">
+            <option value="GBP">GBP</option>
+            <option value="BitCoin">BitCoin</option>
+            <option value="Ethereum">Ethereum</option>
+            <option value="dollar">Dollar $</option>
+            <option value="Euro #">Euro #</option>
+          </select><i class="fa fa-caret-down"></i>
+        </li>
+        <li> <a href="http://">Register</a></li>
+        <li> <a href="http://">Sign In</a></li>
+        <li> <a href="http://"><i class="fa fa-cart-arrow-down fa-2x"></i> empty <i class="fa fa-angle-down"></i></a></li>
+      </ul>
+      <div class="content-holder">
+        <div class="content-sub">
+          <div class="back-btn"><i class="fa fa-angle-left"></i> MAIN MENU</div>
+          <div class="title">CASUALS
+            <ul class="links">
+              <li><a href="http://">Jackets</a></li>
+              <li><a href="http://">Hoodies &amp; Sweatshirts</a></li>
+              <li><a href="http://">Polo Shirts</a></li>
+              <li><a href="http://">Sportswear</a></li>
+              <li><a href="http://">Trousers &amp; Chinos</a></li>
+              <li><a href="http://">T Shirts</a></li>
+            </ul>
+          </div>
+          <div class="title">FORMAL
+            <ul class="links">
+              <li><a href="http://">Jackets</a></li>
+              <li><a href="http://">Shirts</a></li>
+              <li><a href="http://">Suits</a></li>
+              <li><a href="http://">Trousers</a></li>
+            </ul>
+          </div>
+          <div class="message-box"><b class="main">AUTUMN SALE</b><b class="sub-main">UP TO 50% OFF</b></div>
+        </div>
+        <div class="content-sub">
+          <div class="back-btn"><i class="fa fa-angle-left"></i> MAIN MENU</div>
+          <div class="title">OUR LOOKBOOK
+            <ul class="links">
+              <li><a href="http://">Latest Post(mixed)</a></li>
+              <li><a href="http://">Men's Lookbook</a></li>
+              <li><a href="http://">Women's Lookbook</a></li>
+            </ul>
+          </div>
+          <div class="title">YOUR LOOKBOOK
+            <ul class="links">
+              <li><a href="http://">View and Edit</a></li>
+              <li><a href="http://">Share</a></li>
+              <li><a href="http://">Delete</a></li>
+            </ul>
+          </div>
+          <div class="message-box"><b class="main">AUTUMN SALE</b><b class="sub-main">UP TO 50% OFF</b></div>
+        </div>
+        <div class="content-sub">
+          <div class="back-btn"><i class="fa fa-angle-left"></i> MAIN MENU</div>
+          <div class="title">OUR LOOKBOOK
+            <ul class="links">
+              <li><a href="http://">Latest Post(mixed)</a></li>
+              <li><a href="http://">Men's Lookbook</a></li>
+              <li><a href="http://">Women's Lookbook</a></li>
+            </ul>
+          </div>
+          <div class="title">YOUR LOOKBOOK
+            <ul class="links">
+              <li><a href="http://">View and Edit</a></li>
+              <li><a href="http://">Share</a></li>
+              <li><a href="http://">Delete</a></li>
+            </ul>
+          </div>
+          <div class="message-box"><b class="main">AUTUMN SALE</b><b class="sub-main">UP TO 50% OFF</b></div>
+        </div>
+        <div class="content-sub">
+          <div class="back-btn"><i class="fa fa-angle-left"></i> MAIN MENU</div>
+          <div class="title">OUR LOOKBOOK
+            <ul class="links">
+              <li><a href="http://">Latest Post(mixed)</a></li>
+              <li><a href="http://">Men's Lookbook</a></li>
+              <li><a href="http://">Women's Lookbook</a></li>
+            </ul>
+          </div>
+          <div class="title">YOUR LOOKBOOK
+            <ul class="links">
+              <li><a href="http://">View and Edit</a></li>
+              <li><a href="http://">Share</a></li>
+              <li><a href="http://">Delete</a></li>
+            </ul>
+          </div>
+          <div class="message-box"><b class="main">AUTUMN SALE</b><b class="sub-main">UP TO 50% OFF</b></div>
+        </div>
+        <div class="content-sub">
+          <div class="back-btn"><i class="fa fa-angle-left"></i> MAIN MENU</div>
+          <div class="title">OUR LOOKBOOK
+            <ul class="links">
+              <li><a href="http://">Latest Post(mixed)</a></li>
+              <li><a href="http://">Men's Lookbook</a></li>
+              <li><a href="http://">Women's Lookbook</a></li>
+            </ul>
+          </div>
+          <div class="title">YOUR LOOKBOOK
+            <ul class="links">
+              <li><a href="http://">View and Edit</a></li>
+              <li><a href="http://">Share</a></li>
+              <li><a href="http://">Delete</a></li>
+            </ul>
+          </div>
+          <div class="message-box"><b class="main">AUTUMN SALE</b><b class="sub-main">UP TO 50% OFF</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-below-holder wrapper_11">
+    <div class="brand-title">AVENUE <span class="thin-shot">FASHION</span></div>
+    <div class="nav-main">
+      <ul>
+        <li class="nav-click">MENS <i class="fa fa-angle-down"></i>
+          <div class="content-sub">
+            <div class="title">CASUALS
+              <ul class="links">
+                <li><a href="http://">Jackets</a></li>
+                <li><a href="http://">Hoodies &amp; Sweatshirts</a></li>
+                <li><a href="http://">Polo Shirts</a></li>
+                <li><a href="http://">Sportswear</a></li>
+                <li><a href="http://">Trousers &amp; Chinos</a></li>
+                <li><a href="http://">T Shirts</a></li>
+              </ul>
+            </div>
+            <div class="title">FORMAL
+              <ul class="links">
+                <li><a href="http://">Jackets</a></li>
+                <li><a href="http://">Shirts</a></li>
+                <li><a href="http://">Suits</a></li>
+                <li><a href="http://">Trousers</a></li>
+              </ul>
+            </div>
+            <div class="message-box"><b class="main">AUTUMN SALE</b><b class="sub-main">UP TO 50% OFF</b></div>
+          </div>
+        </li>
+        <li class="nav-click">WOMENS <i class="fa fa-angle-down"></i>
+          <div class="content-sub">
+            <div class="title">OUR LOOKBOOK
+              <ul class="links">
+                <li><a href="http://">Latest Post(mixed)</a></li>
+                <li><a href="http://">Men's Lookbook</a></li>
+                <li><a href="http://">Women's Lookbook</a></li>
+              </ul>
+            </div>
+            <div class="title">YOUR LOOKBOOK
+              <ul class="links">
+                <li><a href="http://">View and Edit</a></li>
+                <li><a href="http://">Share</a></li>
+                <li><a href="http://">Delete</a></li>
+              </ul>
+            </div>
+            <div class="message-box"><b class="main">AUTUMN SALE</b><b class="sub-main">UP TO 50% OFF</b></div>
+          </div>
+        </li>
+        <li class="nav-click">THE BRAND <i class="fa fa-angle-down"></i>
+          <div class="content-sub">
+            <div class="title">OUR LOOKBOOK
+              <ul class="links">
+                <li><a href="http://">Latest Post(mixed)</a></li>
+                <li><a href="http://">Men's Lookbook</a></li>
+                <li><a href="http://">Women's Lookbook</a></li>
+              </ul>
+            </div>
+            <div class="title">YOUR LOOKBOOK
+              <ul class="links">
+                <li><a href="http://">View and Edit</a></li>
+                <li><a href="http://">Share</a></li>
+                <li><a href="http://">Delete</a></li>
+              </ul>
+            </div>
+            <div class="message-box"><b class="main">AUTUMN SALE</b><b class="sub-main">UP TO 50% OFF</b></div>
+          </div>
+        </li>
+        <li class="nav-click">LOCAL STORES <i class="fa fa-angle-down"></i>
+          <div class="content-sub">
+            <div class="title">OUR LOOKBOOK
+              <ul class="links">
+                <li><a href="http://">Latest Post(mixed)</a></li>
+                <li><a href="http://">Men's Lookbook</a></li>
+                <li><a href="http://">Women's Lookbook</a></li>
+              </ul>
+            </div>
+            <div class="title">YOUR LOOKBOOK
+              <ul class="links">
+                <li><a href="http://">View and Edit</a></li>
+                <li><a href="http://">Share</a></li>
+                <li><a href="http://">Delete</a></li>
+              </ul>
+            </div>
+            <div class="message-box"><b class="main">AUTUMN SALE</b><b class="sub-main">UP TO 50% OFF</b></div>
+          </div>
+        </li>
+        <li class="nav-click">LOOK BOOK <i class="fa fa-angle-down"></i>
+          <div class="content-sub">
+            <div class="title">OUR LOOKBOOK
+              <ul class="links">
+                <li><a href="http://">Latest Post(mixed)</a></li>
+                <li><a href="http://">Men's Lookbook</a></li>
+                <li><a href="http://">Women's Lookbook</a></li>
+              </ul>
+            </div>
+            <div class="title">YOUR LOOKBOOK
+              <ul class="links">
+                <li><a href="http://">View and Edit</a></li>
+                <li><a href="http://">Share</a></li>
+                <li><a href="http://">Delete</a></li>
+              </ul>
+            </div>
+            <div class="message-box"><b class="main">AUTUMN SALE</b><b class="sub-main">UP TO 50% OFF</b></div>
+          </div>
+        </li>
+        <li><input type="search" name="search" id="search_box" placeholder="Search here.."/><i class="fa fa-search" id="searclogo"></i></li>
+      </ul>
+    </div>
+    <div class="nav-icon" id="menu-click"><i class="fa fa-bars fa-3x"></i></div>
+  </div><a class="home-cta" href="http://">SHOP MEN'S COLLECTION</a>
+</nav>
+        
+<div class="categories-holder wrapper_90">
+  <hr class="bar-section"/>
+  <div class="menu-selection"><a href="http://">POPULAR</a><a href="http://">NEW ARRIVALS</a><a href="http://">BEST SELLERS</a><a href="http://">SPECIAL DEALS</a><a href="http://">COMING SOON</a></div>
+  <div class="mobile-menu-selection">Select Category
+    <select class="mobile-dropdown">
+      <option value="">POPULAR</option>
+      <option value="">NEW ARRIVALS</option>
+      <option value="">BEST SELLERS</option>
+      <option value="">SPECIAL DEALS</option>
+      <option value="">COMING SOON</option>
+    </select>
+  </div>
+  <div class="grid-window">
+    <div class="grid-displaysp1">
+      <div class="main-card"><img class="backimg" src="assets/img-min/01-home/display1.png" alt="" srcset=""/>
+        <div class="price-tag"><sup><i class="fa fa-euro"></i></sup>89.99</div>
+        <div class="hover-img">
+          <div class="front-img"><img src="assets/img-min/01-home/display1.png" alt="" srcset=""/></div>
+          <div class="back-img"><img src="assets/img-min/01-home/display1.png" alt="" srcset=""/></div>
+        </div>
+      </div>
+      <div class="details-card">
+        <div class="title">MENS DART BLACK CASUAL TEE <br><sup><i class="fa fa-euro"></i></sup> 89.99</div>
+        <div class="about">Classic casual t-shirt for men on the move. 100% cotton</div>
+        <div class="cta"><i class="fa fa-shopping-cart"></i><i class="fa fa-heart"></i><i class="fa fa-compress-arrow">&#61542;   </i></div>
+      </div>
+    </div>
+    <div class="grid-displaysp1">
+      <div class="main-card"><img class="backimg" src="assets/img-min/01-home/display2.png" alt="" srcset=""/>
+        <div class="price-tag"><sup><i class="fa fa-euro"></i></sup>47.50</div>
+        <div class="hover-img">
+          <div class="front-img"><img src="assets/img-min/01-home/display2.png" alt="" srcset=""/></div>
+          <div class="back-img"><img src="assets/img-min/01-home/display2.png" alt="" srcset=""/></div>
+        </div>
+      </div>
+      <div class="details-card">
+        <div class="title">WOMENS WHITE DESING CASUAL TEE <br><sup><i class="fa fa-euro"></i></sup> 47.50</div>
+        <div class="about">Classic casual t-shirt for women on the move. 100% cotton</div>
+        <div class="cta"><i class="fa fa-shopping-cart"></i><i class="fa fa-heart"></i><i class="fa fa-compress-arrow">&#61542;   </i></div>
+      </div>
+    </div>
+    <div class="grid-displaysp2">
+      <div class="main-card"><img class="backimg" src="assets/img-min/01-home/display3.png" alt="" srcset=""/>
+        <div class="price-tag"><sup><i class="fa fa-euro"></i></sup>89.99</div>
+        <div class="hover-img">
+          <div class="front-img"><img src="assets/img-min/01-home/display3.png" alt="" srcset=""/></div>
+          <div class="back-img"><img src="assets/img-min/01-home/display3.png" alt="" srcset=""/></div>
+        </div>
+      </div>
+      <div class="details-card">
+        <div class="title">MENS BLACK SWEATER <br><sup><i class="fa fa-euro"></i></sup> 89.99</div>
+        <div class="about">Classic sweater for men on the move. 100% cotton</div>
+        <div class="cta"><i class="fa fa-shopping-cart"></i><i class="fa fa-heart"></i><i class="fa fa-compress-arrow">&#61542; </i></div>
+      </div>
+    </div>
+    <div class="grid-displaysp2">
+      <div class="main-card"><img class="backimg" src="assets/img-min/01-home/display4.png" alt="" srcset=""/>
+        <div class="price-tag"><sup><i class="fa fa-euro"></i></sup>69.95</div>
+        <div class="hover-img">
+          <div class="front-img"><img src="assets/img-min/01-home/display4.png" alt="" srcset=""/></div>
+          <div class="back-img"><img src="assets/img-min/01-home/display4.png" alt="" srcset=""/></div>
+        </div>
+      </div>
+      <div class="details-card">
+        <div class="title">MENS LIGHT BLUE CASUAL TEE <br><sup><i class="fa fa-euro"></i></sup> 69.95</div>
+        <div class="about">Classic casual t-shirt for men on the move. 100% cotton</div>
+        <div class="cta"><i class="fa fa-shopping-cart"></i><i class="fa fa-heart"></i><i class="fa fa-compress-arrow">&#61542; </i></div>
+      </div>
+    </div>
+    <div class="grid-displaysp1">
+      <div class="main-card"><img class="backimg" src="assets/img-min/01-home/display5.png" alt="" srcset=""/>
+        <div class="price-tag"><sup><i class="fa fa-euro"></i></sup>29.95</div>
+        <div class="hover-img">
+          <div class="front-img"><img src="assets/img-min/01-home/display5-thumb-back.png" alt="" srcset=""/></div>
+          <div class="back-img"><img src="assets/img-min/01-home/display5-thumb-front.png" alt="" srcset=""/></div>
+        </div>
+      </div>
+      <div class="details-card">
+        <div class="title">WOMENS BURNT ORANGE CASUAL TEE <br><sup><i class="fa fa-euro"></i></sup> 29.95</div>
+        <div class="about">Classic casual t-shirt for women on the move. 100% cotton</div>
+        <div class="cta"><i class="fa fa-shopping-cart"></i><i class="fa fa-heart"></i><i class="fa fa-compress-arrow">&#61542;   </i></div>
+      </div>
+    </div>
+    <div class="grid-displaysp1">
+      <div class="main-card"><img class="backimg" src="assets/img-min/01-home/display6.png" alt="" srcset=""/>
+        <div class="price-tag"><sup><i class="fa fa-euro"></i></sup>34.79</div>
+        <div class="hover-img">
+          <div class="front-img"><img src="assets/img-min/01-home/display6.png" alt="" srcset=""/></div>
+          <div class="back-img"><img src="assets/img-min/01-home/display6.png" alt="" srcset=""/></div>
+        </div>
+      </div>
+      <div class="details-card">
+        <div class="title">WOMENS DARK GREEN CASUAL TEE <br><sup><i class="fa fa-euro"></i></sup> 34.79</div>
+        <div class="about">Classic casual t-shirt for women on the move. 100% cotton</div>
+        <div class="cta"><i class="fa fa-shopping-cart"></i><i class="fa fa-heart"></i><i class="fa fa-compress-arrow">&#61542;   </i></div>
+      </div>
+    </div>
+  </div>
+  <hr class="bar-section"/>
+</div>
+        
+<div class="lookbook-wrapper">
+  <div class="book-container"><img src="assets/img-min/01-home/men-lookbook.png" alt="" srcset=""/>
+    <div class="details">
+      <div class="main-shot">MEN'S</div>
+      <div class="sub-shot">LOOKBOOK</div>
+      <div class="about">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis veniam praesentium ea fugit. Quia ipsa eaque deserunt pariatur eius temporibus neque, id tempora repellat hic alias quae illum voluptatem fuga!</div><a class="home-cta">VIEW NOW</a>
+    </div>
+  </div>
+  <div class="book-container"><img src="assets/img-min/01-home/women-lookbook.png" alt="" srcset=""/>
+    <div class="details">
+      <div class="main-shot">WOMEN'S</div>
+      <div class="sub-shot">LOOKBOOK</div>
+      <div class="about">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis veniam praesentium ea fugit. Quia ipsa eaque deserunt pariatur eius temporibus neque, id tempora repellat hic alias quae illum voluptatem fuga!</div><a class="home-cta">VIEW NOW</a>
+    </div>
+  </div>
+  <div class="book-container"><img src="assets/img-min/01-home/your-lookbook.png" alt="" srcset=""/>
+    <div class="details">
+      <div class="main-shot">YOUR</div>
+      <div class="sub-shot">LOOKBOOK</div>
+      <div class="about">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis veniam praesentium ea fugit. Quia ipsa eaque deserunt pariatur eius temporibus neque, id tempora repellat hic alias quae illum voluptatem fuga!</div><a class="home-cta">VIEW NOW</a>
+    </div>
+  </div>
+</div>
+        
+<footer>
+  <div class="footer-container">
+    <div class="wrapper_70">
+      <div class="list-container">
+        <div class="list">INFORMATION
+          <ul>
+            <li><a href="http://">The brand</a></li>
+            <li><a href="http://">Local stores</a></li>
+            <li><a href="http://">Customer service</a></li>
+            <li><a href="http://">Privacy &amp; cookies</a></li>
+            <li><a href="http://">Site map</a></li>
+          </ul>
+        </div>
+        <div class="list">WHY BUY FROM US
+          <ul>
+            <li><a href="http://">Shipping &amp; returns</a></li>
+            <li><a href="http://">Secure shopping</a></li>
+            <li><a href="http://">Testimonials</a></li>
+            <li><a href="http://">Award winning</a></li>
+            <li><a href="http://">Ethical trading</a></li>
+          </ul>
+        </div>
+        <div class="list">YOUR ACCOUNT
+          <ul>
+            <li><a href="http://">Sign in</a></li>
+            <li><a href="http://">Register</a></li>
+            <li><a href="http://">View cart</a></li>
+            <li><a href="http://">View your lookbook</a></li>
+            <li><a href="http://">Track an order</a></li>
+            <li><a href="http://">Update information</a></li>
+          </ul>
+        </div>
+        <div class="list">LOOKBOOK
+          <ul>
+            <li><a href="http://">Latest posts</a></li>
+            <li><a href="http://">Men's lookbook</a></li>
+            <li><a href="http://">Women's lookbook</a></li>
+            <li><a href="http://">Lookbooks RSS feed</a></li>
+            <li><a href="http://">View your lookbook</a></li>
+            <li><a href="http://">Delete your lookbook</a></li>
+          </ul>
+        </div>
+        <div class="list">CONTACT
+          <ul>
+            <li><a href="http://">Head Office Aven Fashion</a></li>
+            <li><a href="http://">180-182 Regent Street London</a></li>
+            <li><a href="http://">Telephone: 0706-378-882</a></li>
+            <li><a href="http://">Email: support@yourwebsite</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="box-content"><b class="main-info">AWARD WINNER <br></b><b class="sub-detail">FASHION AWARDS 2016</b></div>
+      <div class="box-content social"><a href="http://"><i class="fa fa-facebook-f"></i></a><a href="http://"><i class="fa fa-twitter"></i></a><a href="http://"><i class="fa fa-instagram"></i></a><a href="http://"><i class="fa fa-pinterest"></i></a></div>
+    </div>
+    <div class="black-finish">
+      <div class="wrapper_70">
+        <div class="copy">&copy; 2020 Avenue Fashion<sup>TM</sup></div>
+        <div class="dev">Designed by Nurudeen AbdulMalik    Copied From RobbyDesign.com</div>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+  <script src="/assets/js/functions.min.js"></script>
+  </body>
+</html>

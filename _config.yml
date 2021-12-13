@@ -1,7 +1,0 @@
-name: Nurudeen Abdulmalik
-markdown: kramdown
-exclude: ["node_modules",
-  "gulpfile.js",
-  "package.json",
-  "preview.jpg",
-  "README.md"]
