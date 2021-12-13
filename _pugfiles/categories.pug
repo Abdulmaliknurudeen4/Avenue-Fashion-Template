@@ -1,0 +1,61 @@
+mixin grid-displaysp1(image, thumb_front, thumb_back, price, title, about)
+    .grid-displaysp1
+        .main-card
+            img(src="assets/img-min/01-home/"+image, alt="", srcset="").backimg
+            .price-tag <sup><i class="fa fa-euro"></i></sup>#{price}
+            .hover-img
+                .front-img
+                    img(src="assets/img-min/01-home/"+thumb_front, alt="", srcset="")
+                .back-img
+                    img(src="assets/img-min/01-home/"+thumb_back, alt="", srcset="")
+        .details-card
+            .title #{title} <br><sup><i class="fa fa-euro"></i></sup> #{price}
+            .about #{about}
+            .cta
+                i.fa.fa-shopping-cart
+                i.fa.fa-heart
+                i.fa.fa-compress-arrow &#61542;   
+
+mixin grid-displaysp2(image, thumb_front, thumb_back, price, title, about)
+    .grid-displaysp2
+        .main-card
+            img(src="assets/img-min/01-home/"+image, alt="", srcset="").backimg
+            .price-tag <sup><i class="fa fa-euro"></i></sup>#{price}
+            .hover-img
+                .front-img
+                    img(src="assets/img-min/01-home/"+thumb_front, alt="", srcset="")
+                .back-img
+                    img(src="assets/img-min/01-home/"+thumb_back, alt="", srcset="")
+        .details-card
+            .title #{title} <br><sup><i class="fa fa-euro"></i></sup> #{price}
+            .about #{about}
+            .cta
+                i.fa.fa-shopping-cart
+                i.fa.fa-heart
+                i.fa.fa-compress-arrow &#61542; 
+
+
+.categories-holder.wrapper_90
+    hr.bar-section
+    .menu-selection
+        a(href="http://") POPULAR
+        a(href="http://") NEW ARRIVALS
+        a(href="http://") BEST SELLERS
+        a(href="http://") SPECIAL DEALS
+        a(href="http://") COMING SOON
+    .mobile-menu-selection Select Category
+        select.mobile-dropdown
+            option(value="") POPULAR
+            option(value="") NEW ARRIVALS
+            option(value="") BEST SELLERS
+            option(value="") SPECIAL DEALS
+            option(value="") COMING SOON
+            
+    .grid-window
+        +grid-displaysp1('display1.png','display1.png','display1.png','89.99','MENS DART BLACK CASUAL TEE','Classic casual t-shirt for men on the move. 100% cotton')
+        +grid-displaysp1('display2.png','display2.png','display2.png','47.50','WOMENS WHITE DESING CASUAL TEE','Classic casual t-shirt for women on the move. 100% cotton')
+        +grid-displaysp2('display3.png','display3.png','display3.png','89.99','MENS BLACK SWEATER','Classic sweater for men on the move. 100% cotton')
+        +grid-displaysp2('display4.png','display4.png','display4.png','69.95','MENS LIGHT BLUE CASUAL TEE','Classic casual t-shirt for men on the move. 100% cotton')
+        +grid-displaysp1('display5.png','display5-thumb-back.png','display5-thumb-front.png','29.95','WOMENS BURNT ORANGE CASUAL TEE','Classic casual t-shirt for women on the move. 100% cotton')
+        +grid-displaysp1('display6.png','display6.png','display6.png','34.79','WOMENS DARK GREEN CASUAL TEE','Classic casual t-shirt for women on the move. 100% cotton')
+    hr.bar-section

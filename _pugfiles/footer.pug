@@ -1,0 +1,60 @@
+-
+    const listItem = { 
+        listTitle:'INFORMATION',
+        items:{'The brand':'http://', 'Local stores':'http://', 'Customer service':'http://', 'Privacy & cookies':'http://', 'Site map':'http://'}
+        }
+
+    const listItem2 = { 
+        listTitle:'WHY BUY FROM US',
+        items:{'Shipping & returns':'http://', 'Secure shopping':'http://', 'Testimonials':'http://', 'Award winning':'http://', 'Ethical trading':'http://'}
+        }
+
+    const listItem3 = { 
+        listTitle:'YOUR ACCOUNT',
+        items:{'Sign in':'http://', 'Register':'http://', 'View cart':'http://', 'View your lookbook':'http://', 'Track an order':'http://', 'Update information':'http://'}
+        }
+
+    const listItem4 = { 
+        listTitle:'LOOKBOOK',
+        items:{'Latest posts':'http://', "Men's lookbook":'http://', "Women's lookbook":'http://', 'Lookbooks RSS feed':'http://', 'View your lookbook':'http://', 'Delete your lookbook':'http://'}
+        }
+
+    const listItem5 = { 
+        listTitle:'CONTACT',
+        items:{'Head Office Aven Fashion':'http://', "180-182 Regent Street London":'http://', "Telephone: 0706-378-882":'http://', 'Email: support@yourwebsite':'http://'}
+        }
+
+mixin listGen(contentHolder)
+    .list= contentHolder.listTitle
+        ul
+            each value, key in contentHolder.items
+                li
+                    a(href!=value)= key
+
+footer
+    .footer-container
+        .wrapper_70
+            .list-container
+                +listGen(listItem)
+                +listGen(listItem2)
+                +listGen(listItem3)
+                +listGen(listItem4)
+                +listGen(listItem5)
+
+            .box-content
+                b.main-info AWARD WINNER <br>
+                b.sub-detail FASHION AWARDS 2016
+            .box-content.social
+                a(href="http://")
+                    i.fa.fa-facebook-f
+                a(href="http://")
+                    i.fa.fa-twitter
+                a(href="http://")
+                    i.fa.fa-instagram
+                a(href="http://")
+                    i.fa.fa-pinterest
+        
+        .black-finish
+            .wrapper_70
+                .copy &copy; 2020 Avenue Fashion<sup>TM</sup>
+                .dev Designed by Nurudeen AbdulMalik    Copied From RobbyDesign.com
