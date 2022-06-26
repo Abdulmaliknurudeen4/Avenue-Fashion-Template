@@ -156,7 +156,7 @@ function imageminTask(done) {
     src( file_sources.imageSRC )
     .pipe( changed(file_dest.imageDEST) )
     .pipe( imagemin([
-        imagemin.gifsicle({interlaced:true}),
+        imagemin.gifsicle({interlaced: true}),
         imagemin.optipng({optimizationLevel:5}),
         imagemin.mozjpeg({progressive:true})
     ]) )
