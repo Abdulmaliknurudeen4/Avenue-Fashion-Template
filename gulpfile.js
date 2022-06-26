@@ -66,7 +66,7 @@ var jekyllSources = {
     cssBuild: '_site/assets/css'
 };
 
-gulp.task('sass', done=>{
+gulp.task('sass',async function(){
     gulp.src(file_sources.styleSRC)
     .pipe(sourcemaps.init())
     .pipe( sass({
