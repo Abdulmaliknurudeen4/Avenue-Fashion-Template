@@ -1,25 +1,33 @@
 //--------------------------
 //Dependencies
 //--------------------------
-var gulp = require('gulp'),
-    browserSync = require('browser-sync').create(),
-    sass = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    sourcemaps = require('gulp-sourcemaps'),
-    pug = require('gulp-pug'),
-    cleanCSS = require('gulp-clean-css'),
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    child_process = require('child_process'),
-    rename = require('gulp-rename'),
-    imagemin = require('gulp-imagemin'),
-    changed = require('gulp-changed');
+import gulp from 'gulp';
+import autoprefixer from 'gulp-autoprefixer';
+import concat from 'gulp-concat';
+import cleanCSS from 'gulp-clean-css';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
+import rename from 'gulp-rename';
+import uglify from 'gulp-uglify';
+import browserSync from 'browser-sync';
+import pug from 'gulp-pug';
+import { spawn } from 'child_process';
+import changed from 'gulp-changed';
+import gulpPugLinter from 'gulp-pug-linter';
+import imageminGifsicle from 'imagemin-gifsicle';
+import optipng from 'imagemin-optipng';
+import mozjpeg from 'imagemin-jpegtran';
+import svgo from 'imagemin-svgo';
+import imagemin from 'gulp-imagemin';
+
+const sass = gulpSass(dartSass);
+const browserSyncInstance = browserSync.create();
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
 
-const { src, task, watch, series, parallel, dest } = require('gulp');
 var file_sources = {
     styleSRC: 'assets/css/main.scss',
     pugSRC: '_pugfiles/*.pug',
@@ -62,126 +70,89 @@ var jekyllSources = {
     cssBuild: '_site/assets/css'
 };
 
-/**
- * 
- *  Jekyll ChildProcess Function Builder
- */
-function reloadSync(done){
-    browserSync.reload();
-    done();
-}
-
-function jekyllBuild(done){
-    browserSync.notify(messages.jekyllBuild);
-    child_process.spawn('jekyll.bat', ['build'], {stdio:'inherit'})
-    .on('close',done);
-
-    //Not Calling the done(); fixes the Error of the 
-    //Jekyll Site not being built before reloading
- // done();   
-}
-
-function cssTask(done) {
-    src(file_sources.styleSRC)
-    .pipe( sourcemaps.init() )
+gulp.task('sass',async function(){
+    gulp.src(file_sources.styleSRC)
+    .pipe(sourcemaps.init())
     .pipe( sass({
         errorLogToConsole: true,
         outputStyle: 'expanded'
     }) )
-    .on( 'error', console.error.bind( console ) )
-    .pipe( autoprefixer({
+    .on('error', console.error.bind(console))
+    .pipe(autoprefixer({
         cascade: false,
         grid: "autoplace"
     }) )
-    .pipe( cleanCSS() )
-    .pipe( rename( { suffix:'.min' } ) )
-    .pipe( sourcemaps.write('./') )
-    .pipe( dest(jekyllSources.cssBuild) )
-    .pipe( browserSync.stream() )
-    .pipe( dest(file_dest.styleDEST) );
-    
+    .pipe(cleanCSS())
+    .pipe(rename( { suffix:'.min' } ))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(jekyllSources.cssBuild))
+    .pipe(browserSync.stream())
+    .pipe(gulp.dest(file_dest.styleDEST));
+});
 
-    done();
-}
+gulp.task('reloadSync', async function(){
+    browserSyncInstance.reload();
+});
 
-function pugTask(done) {
-    src( file_sources.pugSRC )
-    .pipe( pug( {
+gulp.task('jekyllBuild', function(done){
+    browserSyncInstance.notify(messages.jekyllBuild);
+    spawn('jekyll.bat', ['build'], {stdio:'inherit'})
+    .on('close',done);
+});
+
+gulp.task('pug', async function(){
+    gulp.src(file_sources.pugSRC)
+    .pipe(gulpPugLinter({ reporter: 'default' }))
+    .pipe(pug( {
         pretty: true
     } ))
-    .pipe( dest(file_dest.htmlDEST) );
+    .pipe(gulp.dest(file_dest.htmlDEST));
+});
 
-    done();
-}
-
-function jsTask(done){
-    src( file_sources.jsSRC )
-    .pipe( sourcemaps.init() )
+gulp.task('js', async function() {
+    gulp.src(file_sources.jsSRC)
+    .pipe(sourcemaps.init())
     .pipe(concat('functions.min.js'))
-    .pipe( uglify() )
-    .pipe( sourcemaps.write('./') )
-    .pipe( dest(file_dest.jsDEST) );
-    done();
-}
+    .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(file_dest.jsDEST));
+});
 
+gulp.task('imagemin', async function(){
 
+    const imageOptimization = [
+        imageminGifsicle({interlaced: true}),
+        mozjpeg({quality: 75, progressive: true}),
+        optipng({optimizationLevel: 5}),
+        svgo({
+            plugins: [
+                {removeViewBox: true},
+                {cleanupIDs: false}
+            ]
+        })
+    ];
+    gulp.src(file_sources.imageSRC)
+    .pipe( changed(file_dest.imageDEST))
+    .pipe(imagemin(imageOptimization))
+    .pipe(gulp.dest( file_dest.imageDEST, {overwrite: true} ));
+});
 
-function watch_files(){
+gulp.task('browserSync', async function(){
+        browserSyncInstance.init({
+            server:{
+                baseDir:'_site'
+            },
+            notify: true
+        });
+});
 
-    watch(watch_sources.stylesWatch, cssTask);
+gulp.task('watch', async function(){
+    gulp.watch(watch_sources.stylesWatch,gulp.series('sass'));
+    gulp.watch(watch_sources.jsWatch,gulp.series('js'));
+    gulp.watch(watch_sources.pugWatch,gulp.series('pug'));
+    gulp.watch(watch_sources.htmlWatch,gulp.series('jekyllBuild', 'reloadSync'));
+    gulp.watch(watch_sources.imageWatch,gulp.series('imagemin'));
+});
 
-    watch(watch_sources.jsWatch, series(jsTask, jekyllBuild, reloadSync));
-    watch(watch_sources.pugWatch, pugTask);
-    watch(watch_sources.htmlWatch, series(jekyllBuild, reloadSync));
-     watch(watch_sources.imageWatch, imageminTask);
-
-    // watch(watch_sources.pugWatch, series(pugTask, jekyllBuild, reloadSync));
-
-    // watch(watch_sources.imageWatch, imageminTask);
-    // watch(watch_sources.jsWatch, series(esCompileJS, reloadSync));
-}
-
-function browser_sync() {
-    browserSync.init({
-        server:{
-            baseDir:'_site'
-        },
-        notify: true
-    });
-}
-
-
-
-function imageminTask(done) {
-    src( file_sources.imageSRC )
-    .pipe( changed(file_dest.imageDEST) )
-    .pipe( imagemin([
-        imagemin.gifsicle({interlaced:true}),
-        imagemin.optipng({optimizationLevel:5}),
-        imagemin.mozjpeg({progressive:true})
-    ]) )
-    .pipe(dest( file_dest.imageDEST, {overwrite: true} ));
-
-    done();
-}
-//exports
-exports.cssTask = cssTask;
-exports.jsTask = jsTask;
-exports.pugTask = pugTask;
-exports.browser_sync = browser_sync;
-exports.reloadSync = reloadSync;
-exports.jekyllBuild=jekyllBuild;
-exports.imageminTask = imageminTask;
-
-
-//individual tasks
-task("css", cssTask);
-task("pug", pugTask);
-task("js", jsTask);
-task('jekyll_rebuild', jekyllBuild);
-task("img", imageminTask);
-
-//high level Tasks
-
-task('rebuild', parallel(cssTask, imageminTask, pugTask, jsTask, jekyllBuild));
-task('default', parallel(browser_sync,watch_files));
+gulp.task('rebuild', gulp.parallel('sass', 'imagemin', 'pug', 'js', 'jekyllBuild'))
+gulp.task('default', gulp.parallel('browserSync', 'watch'));
