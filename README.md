@@ -17,7 +17,7 @@ In Order to Run this Gulp Project, Follow these steps:
 * Enjoy
 
 #   Credits
-This landing page was made possible by the tutorial provided by <a href="https://github.com/jesseshowalter">Jesse Showalter</a>
+This landing page was made with the template of  <a href="https://freebiesbug.com/psd-freebies/avenue-fashion-psd-ecommerce-template/https://github.com/jesseshowalter">Robby Designs</a>
 
 # Tools
 ![npm](https://img.shields.io/static/v1?style=for-the-badge&message=npm&color=CB3837&logo=npm&logoColor=FFFFFF&label=)
